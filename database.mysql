@@ -1,0 +1,43 @@
+CREATE DATABASE Travel;
+
+CREATE TABLE User
+(
+user_id INT PRIMARY KEY NOT NULL,
+firstName VARCHAR(50),
+lastName VARCHAR(50),
+username VARCHAR(50),
+email VARCHAR(50),
+DOB DATE,
+password VARCHAR(20),
+gender VARCHAR(10),
+profile TEXT
+)
+
+CREATE TABLE Post
+(
+post_id INT PRIMARY KEY NOT NULL,
+user_id INT,
+post TEXT,
+createdAt DATETIME,
+
+ CONSTRAINT fk_user
+        FOREIGN KEY(user_id)
+            REFERENCES User(user_id)
+)
+
+CREATE TABLE Comment
+(
+comment_id INT PRIMARY KEY NOT NULL,
+user_id INT,
+post_id INT,
+comment TEXT,
+createdAt DATETIME,
+
+ CONSTRAINT fk_post
+        FOREIGN KEY(post_id)
+            REFERENCES Post(post_id)
+ CONSTRAINT fk_comment_user
+        FOREIGN KEY(comment)
+            REFERENCES Post(post_id)
+
+)
