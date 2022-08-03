@@ -1,0 +1,13 @@
+USE Travel;
+
+INSERT INTO User (firstName, lastName, username, email, DOB, password, gender, profile) VALUES
+("Christina", "Ma", "chris123", 'christina@hotmail.com', '1990-01-01', 'secret', 'F', 'Hello there I look forward to meeting some cool new people. My main focus of travel is food!'),
+("Jenn", "Doyle", 'jenn123', 'jenn@hotmail.com', '1995-03-10', 'password123', 'F', "I'm from the UK!"),
+('Shiwani', 'Koirala', "shiwani123", 'shiwani@hotmail.com', '1997-01-01', 'password', 'F', "Hey everyone I love to travel" );
+
+INSERT INTO Post (user_id, post, location, travel_start_date, travel_end_date) VALUES
+(1, "I would like to try as many of the tapas physically possible and looking for someone to join in on this in Spain", "Spain", '2022-11-01', '2022-11-14'),
+(2, "I want to go to Brazil in winter to escape the cold. Open to meeting up with people to have a few drinks", "Brazil",'2023-01-02', '2023-01-19');
+
+INSERT INTO Comment (user_id, post_id, comment) VALUES
+(3, 1, "Hi I'm also looking to head to Spain during that time. Where exactly are you planning to go?");
