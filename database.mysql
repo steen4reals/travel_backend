@@ -1,6 +1,8 @@
 CREATE DATABASE Travel;
 
-CREATE TABLE User
+USE Travel;
+
+CREATE TABLE IF NOT EXISTS User
 (
 user_id INT PRIMARY KEY NOT NULL,
 firstName VARCHAR(50),
@@ -10,34 +12,28 @@ email VARCHAR(50),
 DOB DATE,
 password VARCHAR(20),
 gender VARCHAR(10),
-profile TEXT
-)
+profile VARCHAR(255)
+);
 
-CREATE TABLE Post
+CREATE TABLE IF NOT EXISTS Post
 (
 post_id INT PRIMARY KEY NOT NULL,
 user_id INT,
-post TEXT,
-createdAt DATETIME,
+post VARCHAR(255),
+post_createdAt DATETIME,
+location VARCHAR (50),
 
- CONSTRAINT fk_user
-        FOREIGN KEY(user_id)
-            REFERENCES User(user_id)
-)
+FOREIGN KEY(user_id) REFERENCES User(user_id)
+);
 
-CREATE TABLE Comment
+CREATE TABLE IF NOT EXISTS Comment
 (
 comment_id INT PRIMARY KEY NOT NULL,
 user_id INT,
 post_id INT,
-comment TEXT,
-createdAt DATETIME,
+comment VARCHAR(255),
+comment_createdAt DATETIME,
 
- CONSTRAINT fk_post
-        FOREIGN KEY(post_id)
-            REFERENCES Post(post_id)
- CONSTRAINT fk_comment_user
-        FOREIGN KEY(comment)
-            REFERENCES Post(post_id)
-
-)
+FOREIGN KEY(post_id) REFERENCES Post(post_id),
+FOREIGN KEY(user_id) REFERENCES User(user_id)
+);
