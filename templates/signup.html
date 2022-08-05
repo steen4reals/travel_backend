@@ -1,0 +1,49 @@
+{% extends "base_signed_out.html" %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+    <div class="col-signup">
+        <h2 class="display-4 mt-lg-3 text-shadow">Sign up</h2>
+        <p class="mx-4 px-4 text-shadow">Share your travel plans and make some new friends along the way</p>
+        <form method="POST" class="form-signup form-block my-4">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                <label for="username">Username <span class="text-muted">(unique account name)</span></label>
+            </div>
+            <div class="form-floating">
+                <input type="firstname" class="form-control" id="firstname" name="firstname" placeholder="firstname">
+                <label for="firstname">First Name<span class="text-muted"></span></label>
+            </div>
+            <div class="form-floating">
+                <input type="lastname" class="form-control" id="lastname" name="lastname" placeholder="lastname">
+                <label for="lastname">Last Name<span class="text-muted"></span></label>
+            </div>
+             <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder="email">
+                <label for="email">Email<span class="text-muted"></span></label>
+            </div>
+            <div class="form-floating">
+                <input type="dob" class="form-control" id="dob" name="dob" placeholder="dob">
+                <label for="dob">Date of Birth<span class="text-muted">(YYYY-MM-DD)</span></label>
+            </div>
+            <div class="form-floating">
+                <input type="gender" class="form-control" id="gender" name="gender" placeholder="gender">
+                <label for="dob">gender<span class="text-muted"></span></label>
+            </div>
+            <div class="form-floating">
+                <input type="profile" class="form-control" id="profile" name="profile" placeholder="profile">
+                <label for="dob">Profile<span class="text-muted">(A short intro about yourself)</span></label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                <label for="password">Password <span class="text-muted"></span></label>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Create my account</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p class="text-danger text-shadow">{{ messages|join(' • ') }}</p>
+            {% endif %}
+        {% endwith %}
+        <p class="text-shadow">Already have an account?<br><a href="/signin">Sign in</a> instead</p>
+    </div>
+{% endblock %}

@@ -20,3 +20,6 @@ def get_posts():
             return results
 
 
+print(get_posts())
+
+
