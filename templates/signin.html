@@ -1,25 +1,33 @@
 {% extends "base_signed_out.html" %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}Sign in{% endblock %}
+
 {% block content %}
-    <div class="col-signup">
-        <h2 class="display-4 mt-lg-3 text-shadow">Sign up</h2>
-        <p class="mx-4 px-4 text-shadow">Share the books you love and see what others are reading.</p>
-        <form method="POST" class="form-signup form-block my-4">
-            <div class="form-floating">
-                <input type="text" class="form-control" id="username" name="username" placeholder="Username">
-                <label for="username">Username <span class="text-muted">(unique account name)</span></label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="password" name="password" placeholder="password">
-                <label for="password">PIN <span class="text-muted">(4-digit passcode)</span></label>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Create my account</button>
-        </form>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <p class="text-danger text-shadow">{{ messages|join(' • ') }}</p>
-            {% endif %}
-        {% endwith %}
-        <p class="text-shadow">Already have an account?<br><a href="/signin">Sign in</a> instead</p>
+<form method="POST" align="center">
+    <h3>
+        Sign in
+    </h3>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text"
+               id="username"
+               name="username"
+               class="form-control"
+               placeholder="Enter Username"/>
+
+        <br>
+
+        <label for="password">Password</label>
+        <input type="text"
+               id="password"
+               name="password"
+               class="form-control"
+               placeholder="Enter Password"/>
+        <br>
+        <div align="center">
+        <button class="btn btn-primary">Sign in</button>
+        </div>
     </div>
+</form>
+<br>
+<p class="text-shadow">No account yet?<br><a href="/signup">Sign up</a> here</p>
 {% endblock %}
